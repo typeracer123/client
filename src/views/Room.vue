@@ -32,7 +32,8 @@
       return {
         name:"",
         roommaster: "",
-        opponent: "Waiting player ..."
+        opponent: "Waiting player ...",
+        listenRoom: null
       }
     },
     methods: {
@@ -50,17 +51,25 @@
     },
     mounted() {
       console.log(this)
-      db.collection("rooms").doc(this.$route.params.roomId)
+      this.listenRoom = db.collection("rooms").doc(this.$route.params.roomId)
         .onSnapshot((doc) => {
-        this.name = doc.data().name
-        this.roommaster = doc.data().roommaster
-        this.opponent = doc.data().opponent
+          console.log('asd', doc)
+          if (doc) {
+            this.name = doc.data().name
+            this.roommaster = doc.data().roommaster
+            this.opponent = doc.data().opponent
 
-        if (doc.data().status == 'Battle') {
-          this.$router.push(`/lobby/${this.$route.params.roomId}/play`)
-        }
+            if (doc.data().status == 'Battle') {
+              // listenRoom()
+              this.$router.push(`/lobby/${this.$route.params.roomId}/play`)
+            }
+          }
 
       });
+    },
+
+    destroyed() {
+      this.listenRoom()
     }
   }
 </script>

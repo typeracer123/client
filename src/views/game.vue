@@ -17,7 +17,7 @@ export default {
   data () {
     return {
       type: '',
-      word: 'sayang opo kowe krungu jerite ati ku berharap engkau kembali'
+      word: ''
     }
   },
   methods: {
@@ -36,13 +36,15 @@ export default {
     },
     listen: function () {
       var listeningRoom = db.collection('rooms').doc(this.$route.params.roomId).onSnapshot( async (doc) => {
+        console.log('games', doc.data())
+        this.word = doc.data().question
         if (doc.data().winner) {
           await swal(`${doc.data().winner} is the winner!!!`, {
             buttons: true
           })
           listeningRoom()
           await db.collection('rooms').doc(this.$route.params.roomId).delete()
-          this.$router.push('/lobby ')
+          this.$router.push('/lobby')
         }
       })
     }
