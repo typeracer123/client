@@ -15,7 +15,7 @@
         </v-flex>
       </v-layout>
       <div v-if="opponent !='Waiting player ...'" class="">
-        <v-btn color="orange" dark>START GAME</v-btn>
+        <v-btn color="orange" dark @click="startGame">START GAME</v-btn>
       </div>
     </v-container>
   </div>
@@ -36,7 +36,17 @@
       }
     },
     methods: {
-
+      startGame() {
+        db.collection("rooms").doc(this.$route.params.roomId).update({
+            status: 'Battle'
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+      }
     },
     mounted() {
       console.log(this)
@@ -45,6 +55,11 @@
         this.name = doc.data().name
         this.roommaster = doc.data().roommaster
         this.opponent = doc.data().opponent
+
+        if (doc.data().status == 'Battle') {
+          this.$router.push(`/lobby/${this.$route.params.roomId}/play`)
+        }
+
       });
     }
   }
