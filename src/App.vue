@@ -6,6 +6,9 @@
         <span class="font-weight-light">MATERIAL DESIGN</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
+      <router-link to="/login">
+        <span class="btn">Login</span>
+      </router-link>
       <v-btn
         flat
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
@@ -16,6 +19,7 @@
     </v-toolbar>
 
     <v-content>
+      <router-view></router-view>
       <HelloWorld/>
     </v-content>
   </v-app>
@@ -23,7 +27,6 @@
 
 <script>
 import HelloWorld from './components/HelloWorld'
-
 export default {
   name: 'App',
   components: {
