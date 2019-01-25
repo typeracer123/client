@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="container">
     <div v-show="la" class="card">
       <div class="card-header">
@@ -71,7 +71,7 @@ import { mapFields } from 'vuex-map-fields';
         lp:'loginForm.password',
         lm: 'loginForm.message',
         ra: 'registerForm.active',
-        re: 'registerForm.email', 
+        re: 'registerForm.email',
         rp:'registerForm.password',
         rm: 'registerForm.message'
       })
@@ -86,4 +86,4 @@ import { mapFields } from 'vuex-map-fields';
       ...mapActions(['register', 'login'])
     }
   }
-</script>
+</script> -->
