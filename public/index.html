@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
   <body
     style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
@@ -18,20 +19,19 @@
     <noscript>
       <strong>We're sorry but client doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-firestore.js"></script>
     <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyA38eWvJoFgvXxdw-N7SJu4q4qutY6LutI",
-      authDomain: "typeracer-ea112.firebaseapp.com",
-      databaseURL: "https://typeracer-ea112.firebaseio.com",
-      projectId: "typeracer-ea112",
-      storageBucket: "typeracer-ea112.appspot.com",
-      messagingSenderId: "463691877654"
-    };
-    firebase.initializeApp(config);
-    var db = firebase.firestore();
+      var config = {
+        apiKey: "AIzaSyA38eWvJoFgvXxdw-N7SJu4q4qutY6LutI",
+        authDomain: "typeracer-ea112.firebaseapp.com",
+        databaseURL: "https://typeracer-ea112.firebaseio.com",
+        projectId: "typeracer-ea112",
+        storageBucket: "typeracer-ea112.appspot.com",
+        messagingSenderId: "463691877654"
+      };
+      firebase.initializeApp(config);
+      var db = firebase.firestore()
     </script>
     <div id="app"></div>
     <!-- built files will be auto injected -->

@@ -20,6 +20,12 @@ export default new Router({
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     },
     {
+      path: '/lobby/:roomId/play',
+      name: 'ongame',
+      component: () => import(/* webpackChunkName: "ongame" */ './views/game.vue')
+    }, 
+    {
+
       path: '/login',
       name: 'login',
       component: () => import('./views/Login.vue')
